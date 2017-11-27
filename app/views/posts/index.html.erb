@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+<table class='table table-hover' id='myTable'>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td class='title'><%= post.title %></td>
+        <td class='content'><%= post.content %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+
+
+
+<button id='settitle'>SetTitle</button>
+<button id='setclass'>SetClass</button>
+<button id='setattribute'>SetAttribute</button>
+
+<!--버튼을 찾는데 버튼보다 위에 선언되어 있으면 에러-->
+<script src="./title.js"></script> 
+<script src="./attribute.js"></script>
+<script src="./class.js"></script>
